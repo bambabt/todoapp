@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  todoapp:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/todoapp
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: lougrace
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: todoapp
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: lougrace
+    ports:
+      - "5432:5432"
